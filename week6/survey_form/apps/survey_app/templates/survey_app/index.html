@@ -8,11 +8,6 @@
     </head>
     <body>
       <div id="wrapper">
-        
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    
         <h1>Dojo Survey</h1>
         <form action='/surveys/process' method='POST'>
             {% csrf_token %}
