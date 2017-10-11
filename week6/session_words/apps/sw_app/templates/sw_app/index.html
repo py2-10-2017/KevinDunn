@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>Dojo Survey</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'sw_app/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+      <div id="leftdiv">
+    
+        <h1>Add a new word</h1>
+        <form action='add_word' method='POST'>
+            {% csrf_token %}
+            <input type='text' name='the_word'>
+
+            <p>Pick a Color:</p>
+            <input type="radio" name="color" value="red"> Red<br>
+            <input type="radio" name="color" value="green"> Green<br>
+            <input type="radio" name="color" value="blue"checked> Blue<br><br>
+
+            <input type="checkbox" name="big" value="big">Show in BIG Fonts!
+            <input type='submit' value='Submit'>
+        </form>
+      </div> <!-- end leftdiv -->
+
+      <div id="rightdiv">
+        <a href="reset"><button>Clear Session</button></a>
+        {% if request.session.added_words %}
+        {% for word in request.session.added_words %}
+      <p><span style="color: {{word.color}}" class="{{word.class}}">-{{word.the_word}}</span> - added on {{word.created_at}}</p>
+        {% endfor %}
+        {% endif %}
+
+
+        
+      </div>
+    </body>
+</html>

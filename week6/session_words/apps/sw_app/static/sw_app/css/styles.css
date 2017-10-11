@@ -1,0 +1,55 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+}
+div {
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: white;
+}
+#leftdiv {
+    border-right: 3px solid black;
+    margin-left: 40px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: rgb(119, 139, 221);
+    border: none;
+    color: white;
+    padding: 6px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px grey;
+    display: block;
+}
+button {
+    vertical-align: top;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px grey;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+form, h1{
+    margin-left: 20px;
+}
+input[type=text], input[type=radio] {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+a {
+    text-decoration: none;
+}
+.big {
+    font-size: 1.5em;
+}
