@@ -28,9 +28,6 @@ def add_word(request):
 	temp.append(add_word)
 	request.session["added_words"] = temp
 
-	# for key, val in request.session.__dict__.iteritems():
-	# 	print "the key and value are: ", key, val
-	# print "post created at", add_word
 	return redirect('/')
 
 
