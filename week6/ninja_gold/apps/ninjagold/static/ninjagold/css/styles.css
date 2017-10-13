@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(156, 198, 226);
+}
+h1 {
+    color: white;
+    margin-left: 130px;
+    letter-spacing: 45px;
+    font-size: 3em;
+    text-decoration: underline;
+    text-shadow: 3px 2px #000000;
+
+}
+.earnings {
+    display: inline-block;
+    vertical-align: top;
+    height: 42px;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+div.earnings {
+    background-color: #FAE480;
+    border: 2px solid black;
+    text-align: center;
+    padding-right: 10px;
+}
+
+#buildings {
+    display: block;
+    width: 970px;
+    
+}
+    .building {
+        display: inline-block;
+        width: 200px;
+        height: 150px;
+        border: 2px solid black;
+        margin-left: 20px;
+        text-align: center;
+        background-color: white;
+    }
+    input {
+        background: -webkit-linear-gradient(#F2D226, yellow, #F2D226); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#F2D226, yellow, #F2D226); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#F2D226, yellow, #F2D226); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#F2D226, yellow, #F2D226); /* Standard syntax (must be last) */
+    }
+    
+#activities {
+    background-color: white;
+    width: 885px;
+    height: 150px;
+    margin-left: 20px;
+    border: 2px solid black;
+    padding-left: 20px;
+    overflow: scroll;
+
+}
+.activities { 
+    margin-left: 20px;
+}
