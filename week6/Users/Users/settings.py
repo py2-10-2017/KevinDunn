@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.user_login',
     'apps.dojo_ninjas',
+    'apps.book_authors',
 ]
 
 MIDDLEWARE = [
