@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 
 # Create your views here.
+def index(request):
+    resp = "Dojo Ninjas"
+    return HttpResponse(resp)
