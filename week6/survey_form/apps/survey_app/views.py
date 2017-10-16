@@ -13,6 +13,6 @@ def process(request):
 
 	return redirect('/result')
 
-def result(request):
+def result(request): 
 	
 	return render(request, 'survey_app/result.html')
