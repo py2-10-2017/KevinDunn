@@ -1,7 +1,16 @@
 # Inside models.py
-# from __future__ import unicode_literals
+from __future__ import unicode_literals
 from django.db import models
 # Create your models here.
+class BlogManager(models.Manager):
+    def basic_validator(self, postData):
+        errors = {}
+        if len(postData['name']) < 5:
+            errors["name"] = "Blog name needs more than 5 characters"
+        if len(postData['desc']) < 10:
+            errors['desc'] = "Blog desc should be more than 10 characters"
+        return errors; 
+
 class Blog(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField()
