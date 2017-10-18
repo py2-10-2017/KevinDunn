@@ -1,0 +1,47 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: rgb(49, 87, 121);
+    font-family: sans-serif;
+}
+#wrapper {
+    width: 970px;
+    display: block;
+    margin: auto;
+    background-color: white;
+}
+textarea {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+thead {
+    background-color: rgb(49, 87, 121);
+    color: white;
+}
+td {
+    height: 50px;
+    vertical-align: bottom;
+}
