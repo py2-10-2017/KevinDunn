@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: rgb(49, 87, 121);
+    font-family: sans-serif;
+}
+#wrapper {
+    width: 970px;
+    display: block;
+    margin: auto;
+    background-color: white;
+}
+form{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 10px solid rgb(49, 87, 121);
+}
+input[type=text] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+thead {
+    background-color: rgb(49, 87, 121);
+    color: white;
+}
+td {
+    height: 50px;
+    vertical-align: bottom;
+}
