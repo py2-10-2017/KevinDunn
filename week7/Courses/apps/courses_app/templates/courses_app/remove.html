@@ -10,10 +10,10 @@
     
     <div id="wrapper">
         <h1>Are you sure you wan't to delete the following course?</h1>
-        <p>Name: {{courses.name}} </p>
-        <p>Description: {{courses.desc}}</p>
-        <button class="no">No</button>
-        <a href="/courses/{{ course.id }}/delete"><button class="yes">Yes! I want to delete this</button></a>
+        <p>Name: {{course.name}} </p>
+        <p>Description: {{course.desc}}</p>
+        <a href="/courses_app"><button class="no">No</button></a>
+        <a href="/courses_app/destroy/{{ course.id }}"><button class="yes">Yes! I want to delete this</button></a>
     </div>
     
 </body>

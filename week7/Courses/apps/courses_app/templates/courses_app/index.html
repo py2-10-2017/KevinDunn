@@ -17,29 +17,29 @@
             {% endfor %}
         </div>
         {% endif %}
-        <form action="/courses_app/create" method="POST">
+        <!-- <form action="/courses_app/create" method="POST">
             {% csrf_token %}
             <label for="name">Name:</label>
             <input type="text" id="name" name="name">
             <label for="desc">Description:</label>
             <input type="textarea" id="desc" name="desc">
             <input type="Submit">
-        </form>
-        <!-- <h2>test form</h2>
-        <form action="/courses_app/create" method="POST>
+        </form> -->
+        <h2>test form</h2>
+        <form id="course_input" action="/courses_app/create" method="POST">
             {% csrf_token %}
-            
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name"><br>
-        
-            <label for="textarea">Description:</label>
-            <textarea name="desc" rows="10" cols="30">d</textarea>
+            <div class="form_items">
+                <p>Name: </p>
+                <input type="text" id="name" name="name"><br>
+            </div>
+            <div class="form_items">
+                <p>Description: </p>
+                <textarea name="desc" rows="10" cols="30"></textarea>
+            </div>
             
             <br>
             <input type="Submit">
-        </form> -->
-        
-
+        </form>
 
 
         <h1>Courses</h1>
@@ -58,7 +58,7 @@
                 <td>{{ course.name }}</td>
                 <td>{{ course.desc }}</td>
                 <td>{{ course.created_at }}</td>
-                <td><a href="/doublecheck">Remove</a></td>
+                <td><a href="/courses_app/doublecheck/{{ course.id }}">Remove</a></td>
             </tr>
             {% endfor %}
             </tbody>

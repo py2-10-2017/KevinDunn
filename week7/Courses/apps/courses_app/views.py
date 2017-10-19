@@ -21,9 +21,12 @@ def create(request):
         Course.objects.create(name=request.POST['name'], desc=request.POST['desc'])
         return redirect('/')
 
-    def doublecheck(request):
-        return render(request, 'courses_app/remove.html')
+def doublecheck(request, id):
+    context = {
+        "course": Course.objects.get(id=id)
+    }
+    return render(request, 'courses_app/remove.html', context)
 
-    def delete(request, id):
-        Course.objects.get(id=id).delete()
-        return redirect('/')
+def delete(request, id):
+    Course.objects.get(id=id).delete()
+    return redirect('/')

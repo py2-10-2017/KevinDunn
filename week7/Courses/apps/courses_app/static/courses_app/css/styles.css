@@ -7,14 +7,21 @@ body {
     font-family: sans-serif;
 }
 #wrapper {
+    padding: 20px 10px;
     width: 970px;
     display: block;
     margin: auto;
     background-color: white;
 }
+#course_input {
+    margin-left: 20px;
+}
+input {
+    width: 40%;
+}
 textarea {
-    width: 50%;
-    height: 150px;
+    width: 40%;
+    height: 130px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -23,8 +30,6 @@ textarea {
     font-size: 16px;
     resize: none;
 }
-
-
 
 table, td, th {
     border: 1px solid black;
@@ -44,4 +49,35 @@ thead {
 td {
     height: 50px;
     vertical-align: bottom;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: rgb(67, 156, 104);
+    border: none;
+    color: white;
+    padding: 6px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px grey;
+    display: block;
+}
+button {
+    background-color: rgb(67, 156, 104);
+    border: none;
+    color: white;
+    padding: 6px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px grey;
+    display: inline-block;
+}
+.yes {
+    background-color: red;
+}
+.no {
+    background-color: grey;
+}
+a {
+    text-decoration: none;
 }
