@@ -10,10 +10,50 @@
     
     <div id="registration">
        <h1>Registration</h1>
+
+        <form action='/myapp/register' method='POST'>
+            {% csrf_token %}
+            <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+            <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+            <label for="email">Email:<input type="text" name="email" id="email"></label>
+            <label for="password">Password:<input type="password" name="password" id="password"></label>
+            <label for="confirm">Confirm Password:<input type="password" name="confirm" id="confirm"></label>
+            <input type="submit" value="Register">
+        </form>
+
     </div>
     <div id="login">
         <h1>Login</h1>
+
+        <form action='/myapp/login' method='POST'>
+            {% csrf_token %}
+            <label for="email">Email:<input type="text" name="email" id="email"></label>
+            <label for="password">Password:<input type="password" name="password" id="password"></label>
+            <input type="submit" value="Log in">
+        </form>
+
     </div>
+    
+    <h1>Users added to Database: </h1>
+    <table>
+        <thead>
+            <tr>
+            <th>First Name: </th>
+            <th>Last Name: </th>
+            <th>Email: </th>
+            <th>Password: </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
     
 </body>
 </html>

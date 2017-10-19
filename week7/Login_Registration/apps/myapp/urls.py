@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^myapp/success$', views.success),
-    url(r'^myapp/create$', views.create),
+    url(r'^myapp$', views.index),
+    
+    url(r'^success$', views.success),
+    url(r'^myapp/register$', views.register),
     url(r'^myapp/login$', views.login),
 ]
