@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>Semi Restful Users</title>
+    <title>Courses</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'courses_app/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
@@ -17,14 +17,15 @@
             {% endfor %}
         </div>
         {% endif %}
-        <!-- <form action="/users/create" method="POST">
+        <form action="/courses_app/create" method="POST">
             {% csrf_token %}
             <label for="name">Name:</label>
             <input type="text" id="name" name="name">
             <label for="desc">Description:</label>
             <input type="textarea" id="desc" name="desc">
-        </form> -->
-        <h2>test form</h2>
+            <input type="Submit">
+        </form>
+        <!-- <h2>test form</h2>
         <form action="/courses_app/create" method="POST>
             {% csrf_token %}
             
@@ -36,7 +37,7 @@
             
             <br>
             <input type="Submit">
-        </form>
+        </form> -->
         
 
 
@@ -52,12 +53,12 @@
                 </tr>
             </thead>
             <tbody>
-            {% for user in users %}
+            {% for course in courses %}
             <tr>
                 <td>{{ course.name }}</td>
-                <td>{{ course.description }}</td>
+                <td>{{ course.desc }}</td>
                 <td>{{ course.created_at }}</td>
-                <td><a href="/courses/destroy/{{ course.id }}">Remove</a></td>
+                <td><a href="/doublecheck">Remove</a></td>
             </tr>
             {% endfor %}
             </tbody>

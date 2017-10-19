@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>Semi Restful Users</title>
+    <title>Courses</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'courses_app/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
@@ -10,8 +10,10 @@
     
     <div id="wrapper">
         <h1>Are you sure you wan't to delete the following course?</h1>
-        <p>Name: </p>
-        <p>Description: </p>
+        <p>Name: {{courses.name}} </p>
+        <p>Description: {{courses.desc}}</p>
+        <button class="no">No</button>
+        <a href="/courses/{{ course.id }}/delete"><button class="yes">Yes! I want to delete this</button></a>
     </div>
     
 </body>
