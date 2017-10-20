@@ -20,8 +20,16 @@
             <label for="confirm">Confirm Password:<input type="password" name="confirm" id="confirm"></label>
             <input type="submit" value="Register">
         </form>
-
     </div>
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div id="login">
         <h1>Login</h1>
 
@@ -31,9 +39,10 @@
             <label for="password">Password:<input type="password" name="password" id="password"></label>
             <input type="submit" value="Log in">
         </form>
-
     </div>
     
+
+
     <h1>Users added to Database: </h1>
     <table>
         <thead>
