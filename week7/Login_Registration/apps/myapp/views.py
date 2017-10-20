@@ -26,7 +26,7 @@ def register(request):
     errors = User.objects.validate_reg(request.POST)
     if len(errors):
         for field, message in errors.iteritems():
-            error(request, message) #, extra_tags=field)
+            error(request, message)
         return redirect('/')
     else:
        
