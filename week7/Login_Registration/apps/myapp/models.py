@@ -12,72 +12,49 @@ PASSWORD_REGEX = re.compile(r'^[0-9a-zA-Z!@#$%]{8,40}$')
 class CourseManager(models.Manager):
     def validate_reg(self, postData):
         errors = {}
-
         for field, value in postData.iteritems():
             if len(value) < 1:
                 errors[field] = "{} field is reqired".format(field.replace('_', ' '))
 
             if not re.match(NAME_REGEX, postData['first_name']):
-                # errors.append("First name must be more than 2 (letters only)")
                 errors["first_name"] = "First name must be more than 2 (letters only)"
             if not re.match(NAME_REGEX, postData['last_name']):
-                # errors.append("Last name must be more than 2 (letters only)")
                 errors["last_name"] = "Last name must be more than 2 (letters only)"
             if not re.match(EMAIL_REGEX, postData['email']):
-                # errors.append("Invalid Email")
                 errors["email"] = "Invalid Email"
             if not re.match(PASSWORD_REGEX, postData['password']):
-                # errors.append("Password needs 8 or more (letters, number and or symbol)")
                 errors["password"] = "Password needs 8 or more (letters, number and or symbol)"
             if postData["password"] != postData["confirm"]:
-                # errors.append("Password Confirmation doesn't match")
                 errors["confirm"] = "Password Confirmation doesn't match"
 
-            # if len(postData['name']) < 5:
-            #     errors["name"] = "Course name needs more than 5 character"
-            # if len(postData['desc']) < 15:
-            #     errors['desc'] = "Description needs more than 15 character"
             if not errors:
-                hashed = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt(12))
-
+                hashed = bcrypt.hashpw((postData['password'].encode()), bcrypt.gensalt(5))
+                # hashed = bcrypt.hashpw(postData['password'], bcrypt.gensalt())
             user = self.create(
                 first_name = postData['first_name'],
                 last_name = postData['last_name'],
                 email = postData['email'],
                 password = hashed
-            )            
-            return errors; 
+            )
+                        
+            return errors
+            
 
 
     def login_val(self, postData):
-        errors = {}
+        errors = []
+        
+        if len(self.filter(email=postData['email'])) > 0:
+            user = self.filter(email=postData['email'])[0]
+            if not bcrypt.checkpw(postData['password'].encode(), user.password.encode()):
+                errors.append('email/password incorrect')
+        else:
+            errors.append('email/password incorrect')
 
-        for field, value in postData.iteritems():
-            if len(value) < 1:
-                errors[field] = "{} field is reqired".format(field.replace('_', ' '))
+        if errors:
+            return errors
+        return user
 
-            if not re.match(EMAIL_REGEX, postData['email']):
-                # errors.append("Invalid Email")
-                errors["email"] = "Invalid Email"
-            if not re.match(PASSWORD_REGEX, postData['password']):
-                # errors.append("Password needs 8 or more (letters, number and or symbol)")
-                errors["password"] = "Password needs 8 or more (letters, number and or symbol)"
-
-            # if len(postData['name']) < 5:
-            #     errors["name"] = "Course name needs more than 5 character"
-            # if len(postData['desc']) < 15:
-            #     errors['desc'] = "Description needs more than 15 character"
-            if not errors:
-                hashed = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt(12))
-
-            user = self.create(
-                first_name = postData['first_name'],
-                last_name = postData['last_name'],
-                email = postData['email'],
-                password = hashed
-            )            
-            
-            return errors; 
 
 
 class User(models.Model):

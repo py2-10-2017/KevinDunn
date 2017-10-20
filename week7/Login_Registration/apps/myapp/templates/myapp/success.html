@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 <body>
-    
-    <div id="registration">
-       <h1>Success! Welcome,</h1>
+    <div id="wrapper"></div>
+        <h1>Success! Welcome, to the official: {{ user.first_name }} {{ user.last_name }} Page!</h1>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
+    
     
     
 </body>
