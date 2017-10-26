@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>User Reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>User Reviews: </h1>
+            <p><a href="/success">Home</a></p> | <p><a href="/add">Add a Book and Review</a></p> | <p><a href="/logout">Logout</a></p>
+        </div>
+        {% if user.alias %}
+        <h3>User Allias: {{user.alias}}</h3>
+        {% endif %}
+        {% if not user.alias %}
+        <h3>User Allias: none</h3>
+        {% endif %}
+            
+        <h4>Name: {{user.first_name}} {{user.last_name}}</h4>
+        <h4>Email: {{ user.email }}</h4>
+        <h4>Total Reviews: {{user.reviews.all.count}}</h4>
+
+        <h3>Posted Reviews on the following books:</h3>
+        {% for book in reviewed_books %}
+        <h4><a href="/book/{{book.id}}">{{book.title}}</a></h4>
+        {% endfor %}
+
+    </div> <!-- end wrapper -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Add Book and Review</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+
+        <div id="header">
+            <h1>Book Page</h1>
+            <p><a href="/success">Home</a></p> | <p><a href="/logout">Logout</a></p>
+        </div>
+
+        <h2>{{book.title}}: </h2>
+        <h3>by {{book.author.name}}</h3>
+
+        <div id="recent">
+            <h2>Reviews: </h2>
+            {% for review in book.reviews.all %}
+            <p>Rating: {{review.rating}} out of 5</p>
+            <p><a href="/user/{{review.user.id}}">{{review.user.first_name}} {{review.user.last_name}} </a>says: {{review.comment}}</p>
+            <p>Posted on: {{review.created_at}}</p>
+            <p>review id# is: {{review.id}}</p>
+            {% if review.user.id == user_id %}
+                <p><a href="/book/{{book.id}}/delete/{{ review.id }}">-delete this review-</a></p>
+            {% endif %}
+            <hr>
+            {% endfor %}
+
+        </div>
+        <div id="others">
+                <form action="/book/{{book.id}}/create" method="POST">
+                    {% csrf_token %}
+                        <label for="review">Review:</label>
+                        <textarea rows="5" cols="40" type="text" name="review"></textarea>
+                        <label for="rating">Rating</label>
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    <input type="submit" value="Submit Review">
+                </form>
+                {% if messages %}
+                <div class="messages"><br>
+                    {% for message in messages %}
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+       
+    </div> <!-- end wrapper -->
+</body>
+</html>

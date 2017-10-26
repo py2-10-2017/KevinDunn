@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(71, 64, 63);
+}
+#wrapper{
+    background-color: white;
+    width: 970px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 5px 5px 6px black;
+    border: 1px solid rgb(196, 193, 193);
+
+}
+    #header{
+        width: 100%;
+        height: 60px;
+        display: block;
+        border-bottom: 1px solid orangered;
+        margin-bottom: 20px;
+        /* background-color: rgb(159, 221, 255); */
+    }
+    #header p{
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #recent{
+        width: 500px;
+        height: 600px;
+        display: inline-block;
+        margin-top: 30px;
+        vertical-align: top;
+    }
+    #others{
+        width: 350px;
+        height: 300px;
+        display: inline-block;
+        margin-top: 30px;
+        margin-left: 70px;
+        background-color:rgb(190, 227, 243);
+        overflow: scroll;
+        vertical-align: top;
+        /* border: 1px solid orangered; */
+        padding: 10px;
+    }
+
+    .reg_log{
+        width: 400px;
+        height: 200px;
+        margin: 10px auto;
+        padding: 10px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    a{
+        text-decoration: none;
+        color: rgb(105, 55, 54);
+        
+    }
+    a:hover{
+        color: orangered;
+    }
+    

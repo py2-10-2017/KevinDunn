@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Books Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+
+        <div id="header">
+            <h1>Welcome to Book Reviews {{ user.first_name }} {{ user.last_name }}!</h1>
+            <p><a href="/add">Add a Book and Review</a></p> | 
+            <p><a href="/logout">Logout</a></p>
+        </div> <!-- end header -->
+        
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div id="recent">
+            <h3>Recent Book Reviews:</h3>
+
+             {% for review in recent %}
+            <h2><a href="/book/{{review.book.id}}">{{ review.book.title }}</a></h2>
+            <p>Rating: {{ review.rating }}</p>
+            <p><a href="/user/{{review.reviewer.id}}">{{ review.reviewer.name}}</a> says: {{ review.review }}</p>
+            <p>Posted on: {{ review.created_at }}</p><hr>
+            {% endfor %}
+        </div>
+
+        <div id="others">
+            <h3>Other Books with Reviews: </h3>
+            {% for review in more %}
+            <h2><a href="/book/{{review.book.id}}">{{ review.book.title }}</a></h2>
+            {% endfor %}
+        </div>
+
+    </div> <!-- end wrapper -->
+</body>
+</html>
